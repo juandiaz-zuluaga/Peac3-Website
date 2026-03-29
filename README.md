@@ -27,4 +27,8 @@ This project is currently a work in progress, and it is not fully completed yet.
   1. Download or clone the repository
   2. Open the folder
   3. Run 'index.html' in your browser
-  
+
+  ## Screenshots
+  - <img width="1279" height="668" alt="Peac3 StartPage" src="https://github.com/user-attachments/assets/8981805b-3792-43ba-9245-eea41d29d7f3" />
+  - <img width="1278" height="673" alt="Peac3 MusicPage" src="https://github.com/user-attachments/assets/71b9f664-6560-4018-a8d0-260b71952714" />
+
