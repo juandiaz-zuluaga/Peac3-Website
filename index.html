@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PEAC3</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <script src="JS/main.js" defer></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+  <main>
+    <header class="site-header">
+      <nav class="nav">
+        <!--2 left links, home and abour me-->
+        <ul class="nav-left-links">
+          <li><a href="#home">Incio</a></li>
+          <li><a href="#about">Sobre mi</a></li>
+        </ul>
+
+        <h1 class="logo">PEAC3</h1>
+
+        <!--2 right links, music and social-->
+        <ul class="nav-right-links">
+          <li><a href="#Music">Musica</a></li>
+          <li><a href="#contact">Redes Sociales</a></li>
+        </ul>
+      </nav>
+    </header>
+      <section id="home" class="hero" aria-labelledby="hero-title">
+        <!-- Top 3 images -->
+        <div class="container">
+          <div class="hero-images" aria-hidden="true">
+            <!-- Structure of the slide show of 3 images in each image space-->
+            <div class="slideshow-container" id="slideshow1">
+              <img
+                src="Assets/Images/Photos/Peac1.jpg"
+                alt="Imagen 1"
+                class="slide active"
+              />
+              <img
+                src="Assets/Images/Photos/Peac2.jpg"
+                alt="Imagen 2"
+                class="slide"
+              />
+              <img
+                src="Assets/Images/Photos/Peac3.jpg"
+                alt="Imagen 3"
+                class="slide"
+              />
+            </div>
+
+            <div class="slideshow-container" id="slideshow2">
+              <img
+                src="Assets/Images/Photos/Peac5.jpg"
+                alt="Imagen 4"
+                class="slide active"
+              />
+              <img
+                src="Assets/Images/Photos/Peac-y-Jaime.jpg"
+                alt="Imagen 5"
+                class="slide"
+              />
+              <img
+                src="Assets/Images/Photos/Mono-y-Peac3.jpg"
+                alt="Imagen 6"
+                class="slide"
+              />
+            </div>
+
+            <div class="slideshow-container" id="slideshow3">
+              <img
+                src="Assets/Images/Photos/Peac6.jpg"
+                alt="Imagen 7"
+                class="slide active"
+              />
+              <img
+                src="Assets/Images/Photos/Mono-y-Peac2.jpg"
+                alt="Imagen 8"
+                class="slide"
+              />
+              <img
+                src="Assets/Images/Photos/Peac-y-equipo-en-produccion-so-me-raya.jpg"
+                alt="Imagen 9"
+                class="slide"
+              />
+            </div>
+          </div>
+
+          <div class="hero_body">
+            <h2 id="hero-title" class="hero_title">PEAC3</h2>
+            <p class="hero_text">Cantante y compositor de Colombia</p>
+
+            <!--Button that directs to spotify page-->
+            <a
+              class="btn hero_cta"
+              href="https://open.spotify.com/artist/6UswfDMY8YyPqfyiBTYPCj"
+              target="_blank"
+              rel="noopener"
+              >Escucharme en Spotify de una!</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="about-section">
+        <div class="about-title">
+          <h2>Sobre mi</h2>
+        </div>
+
+        <div class="about-content reveal">
+          <div class="about-image reveal">
+            <img
+              src="Assets/Images/Photos/Peac3.jpg"
+              alt="Imagen representativa de Peac3"
+            />
+          </div>
+          <div class="about-story reveal">
+            <h3>Historia de Peac3</h3>
+            <p>
+              Samuel Machado Pinilla, más conocido como Peac3, es un artista
+              emergente colombiano de 20 años, que está redefiniendo el
+              reggaeton con una propuesta auténtica que expone aquel aspecto
+              emocional de los hombres, que todos tienen pero muy pocos se
+              atreven a reconocer. Desde temprana edad encontró en la música un
+              refugio y un lenguaje para conectar con su entorno. A través de
+              letras cargadas de vulnerabilidad, fuerza y energía, Peac3 se ha
+              convertido en un artista con un estilo único definido como “un
+              gangster que sabe amar", capaz de transmitir tanto la crudeza de
+              la vida como la sensibilidad de corazón de un hombre enamorado.
+            </p>
+          </div>
+          <div class="artistic-concept reveal">
+            <h3>Concepto Artistico</h3>
+            <p>
+              Peac3 encarna la esencia de “un gangster que sí sabe amar”, un
+              artista que transforma el dolor y los retos en canciones que
+              hablan de redención y amor verdadero. Cada tema es una carta de
+              amor hecha música, capaz de conectar con quienes han amado,
+              perdido y soñado con volver a empezar. Su estética, marcada por el
+              soul, el hip hop y el sonido afroamericano de los 80-2000, se
+              funde con la vibra latina para crear una propuesta fresca y
+              trascendente. Auténtico y único, Peac3 no solo hace música:
+              construye un legado que inspira a creer en el poder del amor y la
+              transformación.
+            </p>
+          </div>
+          <div class="music-type reveal">
+            <h3>Estilo Musical</h3>
+            <p>
+              Peac3 trasciende géneros como reggaetón, afrobeat, pop e indie,
+              creando un estilo inconfundible que mezcla la fuerza del soul
+              afroamericano de los 80-2000 con la vibra latina. Ese cruce lo
+              convierte en un artista auténtico, único y con un sonido imposible
+              de imitar.
+            </p>
+          </div>
+
+          <div class="about-footer reveal">
+            <h2>Peac3 no canta, hace cartas de amor</h2>
+          </div>
+        </div>
+      </section>
+
+      <section id="Music" class="music-section">
+        <div class="music-title">
+          <h2>Mi Música</h2>
+        </div>
+        <div class="song-list">
+          <div class="song-card1 reveal">
+            <h3>X Si Quiere Repetir</h3>
+            <img
+              src="Assets/Images/Covers/X si quiere repetir.jpg"
+              alt="Cover X si quiere repetir"
+              class="image-1"
+            />
+            <p>Fecha de salida:</p>
+            <p>19 de Septiembre de 2024</p>
+          </div>
+          <div class="song-card2 reveal">
+            <h3>Casi Algo</h3>
+            <img
+              src="Assets/Images/Covers/Casi Algo .jpg"
+              alt="Cover Casi Algo"
+              class="image-2"
+            />
+            <p>Fecha de salida:</p>
+            <p>29 de Noviembre de 2024</p>
+          </div>
+          <div class="song-card3 reveal">
+            <h3>Sorry La Neta</h3>
+            <img
+              src="Assets/Images/Covers/Sorry la neta.jpg"
+              alt="Cover Sorry la neta"
+              class="image-3"
+            />
+            <p>Fecha de salida:</p>
+            <p>6 de Marzo de 2025</p>
+          </div>
+          <div class="song-card4 reveal">
+            <h3>Tamagotchi</h3>
+            <img
+              src="Assets/Images/Covers/Tamagotchi.jpg"
+              alt="Cover Tamagotchi"
+              class="image-4"
+            />
+            <p>Fecha de salida:</p>
+            <p>20 de Mayo de 2024</p>
+          </div>
+          <div class="song-card5 reveal">
+            <h3>So Me Raya</h3>
+            <img
+              src="Assets/Images/Covers/So me raya.jpg"
+              alt="Cover So me raya"
+              class="image-5"
+            />
+            <p>Fecha de salida:</p>
+            <p>8 de Agosto de 2025</p>
+          </div>
+          <div class="song-card6 reveal">
+            <h3>Evangeline</h3>
+            <img
+              src="Assets/Images/Covers/Evangeline.jpg"
+              alt="Cover Evangeline"
+              class="image-6"
+            />
+            <p>Fecha de salida:</p>
+            <p>2 de Octubre de 2025</p>
+          </div>
+        </div>
+      </section>
+
+      <div id="team" class="team-section">
+        <div class="team-title">
+        <h2>Redes Sociales y Equipo</h2>
+        </div>
+        <div class="peac3Social">
+          <div class="peac3SocialImage reveal">
+            <div class="social-image reveal">
+              <img
+                src="Assets/Images/Photos/Peac5.jpg"
+                alt="Imagen representativa de Peac3"
+               />
+            </div>
+          <div class="peaceSocialRight reveal">
+            <h3 class="SocialTitle">Mis Redes Sociales</h3>
+            <p class="SocialParagraph">Mis redes sociales para que me sigan y esten pendientes a cualquier noticia o actualización. sobre temitas nuevos o eventos. </p>
+            <div class="peac3SocialButtons">
+              <a
+              class="InsagramButton"
+              href="https://www.instagram.com/___peac3?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              target="_blank"
+              rel="noopener"
+              >Instagram</a
+            >
+              <a
+              class="TikTokButton"
+              href="https://www.tiktok.com/@peac3.co?_r=1&_t=ZP-92HADljJYb8"
+              target="_blank"
+              rel="noopener"
+              >TikTok</a
+            > 
+             <a
+              class="InsagramButton"
+              href="https://www.youtube.com/@Soy_PEAC3"
+              target="_blank"
+              rel="noopener"
+              >YouTube</a
+            >
+            </div>
+          </div>
+            
+          </div>
+        </div>
+
+        </div class="team-members">
+          <div class="manager">
+          <h3>Manager: Oscar Mejia Duque</h3>
+          <img src="Assets/Images/Photos/Mono pics/Mono3.jpg" alt="Foto de Mono" class="manager-img" />
+          <p class="story">
+              Conozco a PEAC3 desde que teníamos nueve años. Siempre fuimos grandes amigos y, desde que empezó en la música, supe que tenía algo especial. Lo he visto crecer, esforzarse y nunca rendirse, y eso me inspiró a estar a su lado y apoyarlo en este camino. Con el tiempo, Dios y la vida nos juntaron para trabajar juntos, y hoy en día me siento agradecido de formar parte de su proceso. Creo en su talento, en su disciplina y en su forma de soñar en grande. Desde el día uno he confiado en él, porque compartimos la misma mentalidad de salir adelante y cumplir lo que nos proponemos.</p>
+          <div class="manager-links">
+          <a
+              class="btn-manager-insta"
+              href="https://www.instagram.com/monomejia___?igsh=MXBudGQxYXk4a2w5bw=="
+              target="_blank"
+              rel="noopener"
+              >Instagram</a
+            >
+            <p class="email">contacto.peac3@gmail.com</p>
+            <a
+              class="btn-manager-tiktok"
+              href="hhttps://www.tiktok.com/@monomejia___?_t=ZP-90VK1NU2ZYc&_r=1"
+              target="_blank"
+              rel="noopener"
+              >TikTok</a
+            >
+            </div> 
+          </div>
+          <div class="producer">
+            <h3>Productor: ALED</h3>
+            <img src="Assets/Images/Photos/Productor.jpg" alt="Foto de ALED" />
+            <div class="producer-links">
+            <a
+              class="btn-productor-insta"
+              href="https://www.instagram.com/______aled?igsh=Zmh5YzA3cXZwZWZs"
+              target="_blank"
+              rel="noopener"
+              >Instagram</a
+            >
+            <a
+              class="btn-productor-tiktok"
+              href="https://www.tiktok.com/@______aled?_t=ZP-90VKtFjdOYB&_r=1"
+              target="_blank"
+              rel="noopener"
+              >TikTok</a
+            >
+            <a
+              class="btn-productor-youtube"
+              href="https://youtube.com/@aledbeats?si=N1hLOmzTwlz9xl2O"
+              target="_blank"
+              rel="noopener"
+              >Youtube</a
+            >
+            </div>  
+          </div>  
+      </section>
+      <section id="contact" class="contact-sectoion">
+        <h2> Mis Redes Sociales</h2>
+        <div class="social-linking">
+          <a href="#">Spotify</a>
+          <a href="#">Instagram</a>
+          <a href="#">Twitter</a>
+        </div>
+      </section>
+    
+    </main>
+  </body>
+</html>

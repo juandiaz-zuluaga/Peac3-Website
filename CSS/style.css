@@ -1,0 +1,733 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, Inter, Arial, Helvetica, sans-serif;
+}
+
+@media (max-width: 900px) {
+  .about-content {
+    grid-template-columns: 1fr; /*Single column on small screens*/
+    grid-template-rows: auto; /*Rows adjust automatically*/
+  }
+  .about-image {
+    height: 260px;
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+@keyframes shine {
+  0% {
+    background-position: 200% center; /*Start off to the left*/
+  }
+  100% {
+    background-position: -200% center; /*Move to the right*/
+  }
+}
+/*Hidden state before the scroll*/
+.reveal {
+  opacity: 0;
+  transform: translateY(40px); /*Starts lower*/
+  transition: all 0.8s ease; /*Smooth transition*/
+}
+
+/*When active after the scroll*/
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0); /*Moves to original position*/
+}
+/*
+.
+.
+.
+Navigation Bar Code Section
+.
+.
+
+*/
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/*Temporary color palattes (Change later) */
+:root {
+  --bg: #0b0b0d;
+  --text: #f5f5f7;
+  --muted: #b9b9c2;
+  --accent: #750dd9;
+  --header-bg: #111116;
+}
+
+/*Dark theme page to see the header clearly for now*/
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial,
+    sans-serif;
+  line-height: 1.4;
+}
+
+/*Header Layout*/
+header {
+  display: flex; /*Puts the logo and th enav side by side*/
+  justify-content: space-between; /*Push them to opposite sides*/
+  align-items: center;
+  padding: 16px 24px;
+  background: var(--header-bg); /*Dark background for the header*/
+  position: sticky; /*Makes the header stick to the top when scrolling*/
+  top: 0;
+  z-index: 10; /*Ensures the header stays above other content*/
+}
+
+/*Header Container*/
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--header-bg);
+}
+
+/*Divides the nav bar into 3 column grid: left | center | right*/
+.nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto 1fr 1fr; /*1fr = 1 fraction of available space*/
+  align-items: center;
+  gap: 40px; /*Space between the columns*/
+  padding: 16px 40px;
+  max-width: 1200px;
+  margin: 0 auto; /*Centers the nav bar*/
+}
+
+/*Left nav alings left and rigth nav alings right*/
+.nav-left-links,
+.nav-right-links {
+  display: contents;
+}
+
+.nav-left-links li:first-child {
+  grid-column: 1;
+  justify-self: center;
+}
+.nav-left-links li:last-child {
+  grid-column: 2;
+  justify-self: center;
+}
+.nav-right-links li:first-child {
+  grid-column: 4;
+  justify-self: center;
+}
+.nav-right-links li:last-child {
+  grid-column: 5;
+  justify-self: center;
+}
+
+.nav-left-links li,
+.nav-right-links li {
+  display: inline-block; /*Makes the list items inline but keeps block properties*/
+}
+
+/*Nav link default and hover action*/
+.nav-left-links a,
+.nav-right-links a {
+  color: var(--text);
+  font-weight: 500;
+  padding: 12px 16px;
+  border-radius: 12px; /*Rounder look*/
+  font-size: 1.2rem;
+  transition: background 0.2s ease, color 0.2s ease; /*Hover motion*/
+}
+
+/*Hover animation to nav links*/
+.nav-left-links a:hover,
+.nav-right-links a:hover,
+.nav-left-links a:focus,
+.nav-right-links a:focus {
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--accent);
+}
+
+/*Logo Style*/
+.logo {
+  grid-column: 3;
+  justify-self: center;
+  font-family: "Impact", "Heattenschweiler", "Arial Black", system-ui,
+    sans-serif;
+  margin: 0;
+  font-size: 4.5em;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+/*
+.
+.
+.
+Hero Section Code
+.
+.
+.
+*/
+.container {
+  max-width: 1400px;
+  padding-inline: 80px;
+  margin-inline: auto;
+}
+
+/*Code for the button*/
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #ffff;
+  font-weight: 600;
+  font-size: 1.25rem;
+  text-decoration: none;
+  padding: 14px 120px;
+  border-radius: 900px;
+  border: 0;
+  box-shadow: 0 8px 10px rgba(117, 13, 217, 0.35);
+  transition: transform 0.08s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.hero {
+  padding: 40px 60px 60px;
+  background: radial-gradient(
+    900px 540px at 12% 12%,
+    rgba(117, 13, 217, 0.15),
+    transparent,
+    var(--bg)
+  );
+}
+
+.hero-images {
+  display: grid;
+  grid-template-columns: repeat(
+    3,
+    minmax(380px, 1fr)
+  ); /*Divides the images section into 3 grids*/
+  gap: 30px;
+  margin-block-end: 32px;
+}
+
+/*Image Styling*/
+.hero-images img {
+  display: block;
+  width: 100%;
+  height: clamp(400px, 45vw, 700px);
+  object-fit: cover;
+  object-position: center;
+  border-radius: 18px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.28);
+}
+
+/*Code for the slideshows on the images*/
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: clamp(400px, 45vw, 700px);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.28);
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.slide.active {
+  opacity: 1;
+}
+
+.hero_body {
+  text-align: center;
+  margin: 32px auto 0;
+  max-width: 900px;
+  padding: 0 20px;
+}
+
+.hero_title {
+  margin: 0 0 12px;
+  font-family: "Anton", system-ui, sans-serif;
+  font-size: clamp(2.6rem, 6vw, 4.2rem); /*Scales with the screen size*/
+  letter-spacing: 0.5px;
+  line-height: 1;
+  color: var(--text);
+}
+
+.hero_text {
+  margin: 0 0 24px;
+  color: var(--muted);
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: clamp(1rem, 2.1vw, 1.25rem);
+  line-height: 1.4;
+}
+/*
+.
+.
+.
+About me Section Code
+.
+.
+.
+*/
+
+#about {
+  scroll-margin-top: 100px; /*Offset for sticky header when using anchor links*/
+}
+
+.about-section {
+  padding: 80px 0;
+  background: var(--bg);
+}
+
+.about-title {
+  text-align: left;
+  margin-bottom: 40px;
+  padding-left: 60px;
+}
+
+.about-title h2 {
+  font-family: "Anton", system-ui, sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem); /*Responsive font size*/
+  color: var(--text);
+  margin: 0;
+  font-weight: 700;
+}
+
+.about-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid; /*Creating a grid*/
+  grid-template-columns: 1fr 1fr 1fr; /*Grid of 3 so it can fit the image and the 2 paragraphs*/
+  grid-template-rows: auto auto; /*2 rows*/
+  row-gap: 36px; /*Space between the rows*/
+  gap: 30px;
+}
+
+/*Left Column Image*/
+.about-image {
+  border-radius: 15px;
+  grid-column: 1; /*Place in the first column*/
+  grid-row: 1; /*Place in the first row*/
+  overflow: hidden;
+  align-self: stretch; /*Make the image take the full height of the row*/
+  height: 100%; /*Doesnt exceed the grid cell width*/
+}
+
+/*Stylignt the actuall image*/
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  object-position: 50% 15%; /*Adjust the position of the image*/
+  border-radius: 15px;
+  display: block;
+}
+
+/*Center Column (About Story Block)*/
+.about-story {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  grid-column: 2; /*Place in the second column*/
+  grid-row: 1; /*Span both rows*/
+}
+
+/*Right Column (Artistic concept)*/
+.artistic-concept {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  grid-column: 3; /*Place in the third column*/
+  grid-row: 1; /*Span both rows*/
+}
+
+/*Bottom Row - music type full width*/
+.music-type {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  grid-column: 1 / span 3; /*Span all three columns*/
+  grid-row: 2; /*Place in the second row*/
+}
+
+/*About section titles*/
+.about-story h3,
+.artistic-concept h3,
+.music-type h3 {
+  text-align: center;
+  margin-top: 0;
+  margin: bottom 12px;
+  font-family: "Anton", system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.5px;
+}
+
+/*About section paragraphs*/
+.about-story p,
+.artistic-concept p,
+.music-type p {
+  text-align: center;
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: clamp(1rem, 1.15vw, 1.12rem);
+  line-height: 1.7;
+  color: var(--text);
+}
+
+/*Footer text at the bottom of the about section*/
+.about-footer {
+  grid-column: 1 / -1; /*Span all columns*/
+  text-align: center;
+  margin-top: 40px;
+}
+
+/*Foote text styling*/
+.about-footer h2 {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 3.5rem;
+  letter-spacing: 3.4px;
+  font-weight: bold;
+  margin: 0;
+  font-style: italic;
+  cursor: pointer;
+  color: var(--accent);
+  text-transform: uppercase;
+  background: linear-gradient(
+    /*Gradient colors for the shining aimation*/ 90deg,
+    rgba(117, 13, 217, 1) 0%,
+    rgba(182, 121, 242, 1) 25%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(182, 121, 242, 1) 75%,
+    rgba(117, 13, 217, 1) 100%
+  );
+
+  background-size: 200% auto; /*Double the width for animation*/
+  -webkit-background-clip: text;
+  background-clip: text; /*Clip the background to the text*/
+  -webkit-text-fill-color: transparent; /*Make the text fill transparent*/
+  color: transparent;
+
+  animation: shine 4s linear infinite; /*Infinite animation*/
+}
+/*
+.
+.
+.
+Mi musica Section Code
+.
+.
+.
+*/
+#Music {
+  scroll-margin-top: 180px; /*Offset for sticky header when using anchor links*/
+}
+.music-section {
+  background: var(--bg);
+}
+
+.music-title {
+  text-align: left;
+  margin-bottom: 40px;
+  padding-left: 60px;
+}
+
+.music-title h2 {
+  font-family: "Anton", system-ui, sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem); /*Responsive font size*/
+  color: var(--text);
+  margin: 0;
+  font-weight: 700;
+}
+
+.song-list {
+  max-width: 1400px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr; /*3 columns*/
+  grid-template-rows: 2fr 2fr; /*Rows adjust automatically*/
+  gap: 45px;
+  padding: 0 40px;
+}
+
+/*Code for each card song, the code is exactly the same, what cahnges is the position on the grid*/
+
+.song-card1 {
+  background: rgba(255, 255, 255, 1);
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  text-align: center;
+  grid-column: 1; /*Place in the first column*/
+  grid-row: 1; /*Rows adjust automatically*/
+}
+
+.song-card2 {
+  background: rgba(255, 255, 255, 1);
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  text-align: center;
+  grid-column: 2; /*Place in the second column*/
+  grid-row: 1; /*Rows adjust automatically*/
+}
+
+.song-card3 {
+  background: rgba(255, 255, 255, 1);
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  text-align: center;
+  grid-column: 3; /*Place in the third column*/
+  grid-row: 1; /*Rows adjust automatically*/
+}
+
+.song-card4 {
+  background: rgba(255, 255, 255, 1);
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  text-align: center;
+  grid-column: 1; /*Place in the first column*/
+  grid-row: 2; /*Rows adjust automatically*/
+}
+
+.song-card5 {
+  background: rgba(255, 255, 255, 1);
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  text-align: center;
+  grid-column: 2; /*Place in the second column*/
+  grid-row: 2; /*Rows adjust automatically*/
+}
+
+.song-card6 {
+  background: rgba(255, 255, 255, 1);
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  text-align: center;
+  grid-column: 3; /*Place in the third column*/
+  grid-row: 2; /*Rows adjust automatically*/
+}
+
+/*Code and Styling for the title of all of the songs*/
+.song-card1 h3,
+.song-card2 h3,
+.song-card3 h3,
+.song-card4 h3,
+.song-card5 h3,
+.song-card6 h3 {
+  font-family: "Trebuchet MS", system-ui, sans-serif;
+  font-size: 1.75rem;
+  margin: 0 0 12px;
+  color: var(--bg);
+  font-weight: 900;
+}
+
+/*Code and styling for the release date of all the songs*/
+.song-card1 p,
+.song-card2 p,
+.song-card3 p,
+.song-card4 p,
+.song-card5 p,
+.song-card6 p {
+  font-size: 1.25rem;
+  color: var(--bg);
+  font-weight: 400;
+  font-family: "Poppins", system-ui, sans-serif;
+}
+
+/*Code for each of the cover images of all the songs*/
+.song-card1 img,
+.song-card2 img,
+.song-card3 img,
+.song-card4 img,
+.song-card5 img,
+.song-card6 img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  object-fit: cover;
+}
+/*
+.
+.
+.
+My Team Code Seciton
+.
+.
+. 
+*/
+
+.peac3SocialImage {
+  max-width: 1400px;
+  margin: auto;
+  display: grid; /*Creating a grid*/
+  grid-template-columns: 1fr 1fr 1fr; /*Grid of 1 so it can fit the image and the paragraph*/
+  grid-template-rows: auto; /*2 rows*/
+  row-gap: 36px; /*Space between the rows*/
+  gap: 30px;
+  padding: 0 40px;
+}
+.SocialTitle {
+  font-family: "Anton", system-ui, sans-serif;
+  font-size: 2.2rem;
+  color: var(--text);
+  margin: 0;
+  font-weight: 700;
+  grid-column: 2 / span 2; /*Span all three columns*/
+  grid-row: 1; /*Place in the first row*/
+}
+
+.SocialParagraph {
+  text-align: center;
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: var(--text);
+  margin-top: 12px;
+  grid-column: 2 / span 2; /*Span all three columns*/
+  grid-row: 1; /*Place in the first row*/
+}
+
+.peaceSocialRight {
+  grid-column: 2 / span 2; /*Span all three columns*/
+  grid-row: 1; /*Place in the first row*/
+  display: center;
+  text-align: center;
+}
+
+.social-image {
+  border-radius: 15px;
+  grid-column: 1; /*Place in the first column*/
+  grid-row: 1; /*Place in the first row*/
+  overflow: hidden;
+  align-self: stretch; /*Make the image take the full height of the row*/
+  /*height: 100%; /*Doesnt exceed the grid cell width*/
+}
+
+/*Stylignt the actuall image*/
+.social-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  object-position: 50% 15%; /*Adjust the position of the image*/
+  border-radius: 15px;
+  display: block;
+}
+
+.team-section {
+  background: var(--bg);
+  padding: 100px 0;
+}
+
+.team-title {
+  text-align: left;
+  margin-bottom: 40px;
+  padding-left: 60px;
+}
+
+.team-title h2 {
+  font-family: "Anton", system-ui, sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem); /*Responsive font size*/
+  color: var(--text);
+  margin: 0;
+  font-weight: 700;
+}
+
+.team-members {
+  text-align: left;
+  margin-bottom: 40px;
+  padding-left: 60px;
+}
+
+.manager h3 {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: 1.5rem;
+  color: var(--text);
+  margin: 0;
+  font-weight: 500;
+}
+.manager {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: 1.5rem;
+  color: var(--text);
+  margin: 0;
+  font-weight: 500;
+  display: grid;
+  grid-template-columns: 1fr 2fr; /*Single column*/
+}
+
+.manager img {
+  width: 500px;
+  height: 500px;
+  border-radius: 20px;
+  margin-top: 12px;
+  object-fit: cover;
+  grid-column: 1;
+  gap: 30px;
+  align-self: center;
+}
+
+.story {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: 1.25rem;
+  color: var(--text);
+  margin-top: 12px;
+  font-weight: 400;
+  grid-column: 2;
+  align-self: center;
+  max-width: 100%;
+  line-height: 1.8;
+}
+
+.manager-links {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  grid-column: 2;
+}
+
+.producer img {
+  width: 500px;
+  height: 500px;
+  border-radius: 20px;
+  margin-top: 12px;
+  object-fit: cover;
+  grid-column: 1;
+  gap: 30px;
+  align-self: center;
+}
