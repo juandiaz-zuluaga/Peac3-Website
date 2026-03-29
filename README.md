@@ -1,7 +1,7 @@
 ## About the Project
-This project is a website created for an upcoming Colombian artist named Peac3 as part of a freelance project. The goal of the site is to showcase the artist's music, visuals, and overall identity throuhg a clean and visually appealing design.
-The main focus of this project is front-end development and UI/UX design, aiming to create an engaging and modern user experience.
-This website is fully developed in Spanish, as it is designed for a Spanish-speaking audience and reflects the artist's background and target audience. 
+- This project is a website created for an upcoming Colombian artist named Peac3 as part of a freelance project. The goal of the site is to showcase the artist's music, visuals, and overall identity throuhg a clean and visually appealing design.
+- The main focus of this project is front-end development and UI/UX design, aiming to create an engaging and modern user experience.
+- This website is fully developed in Spanish, as it is designed for a Spanish-speaking audience and reflects the artist's background and target audience. 
 
 ## Status
 This project is currently a work in progress, and it is not fully completed yet. Several sections and features are still being developed, improved, and refined as the project continues.
