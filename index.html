@@ -15,26 +15,51 @@
   <main>
     <header class="site-header">
       <nav class="nav">
-        <!--2 left links, home and abour me-->
-        <ul class="nav-left-links">
-          <li><a href="#home">Incio</a></li>
-          <li><a href="#about">Sobre mi</a></li>
-        </ul>
-
-        <h1 class="logo">PEAC3</h1>
+        <!-- Logo on the left -->
+        <a href="#home" class="logo">
+          <img src="Assets/Images/Logos/Peac3_Logo_black_no_name-NB.png" alt="PEAC3 Logo" class="logo-img">
+        </a>
 
         <!--2 right links, music and social-->
-        <ul class="nav-right-links">
+        <ul class="nav-links">
+          <li><a href="#home">Incio</a></li>
+          <li><a href="#about">Sobre mi</a></li>
           <li><a href="#Music">Musica</a></li>
           <li><a href="#contact">Redes Sociales</a></li>
         </ul>
       </nav>
     </header>
-      <section id="home" class="hero" aria-labelledby="hero-title">
-        <!-- Top 3 images -->
-        <div class="container">
-          <div class="hero-images" aria-hidden="true">
-            <!-- Structure of the slide show of 3 images in each image space-->
+      <section id="home" class="hero">
+        <!-- Hero section remake, with one big image in the background
+        and the title, description and button on top of it. 
+        The images will be a slideshow that changes every 5 seconds, with a fade effect. .-->
+        <div class="hero-slideshow">
+          <img src = "Assets/Images/Photos/Peac1.jpg" alt="PEAC3" class="hero-slide active">
+          <img src = "Assets/Images/Photos/Peac2.jpg" alt="PEAC3" class="hero-slide">
+          <img src = "Assets/Images/Photos/Peac3.jpg" alt="PEAC3" class="hero-slide">
+          <img src = "Assets/Images/Photos/Peac5.jpg" alt="PEAC3" class="hero-slide">
+          <img src = "Assets/Images/Photos/Peac6.jpg" alt="PEAC3" class="hero-slide">
+        </div>
+
+        <!-- Dark overlay for better text readability -->
+        <div class="hero-overlay"></div>
+
+        <!-- Hero body content -->
+        <div class="hero-content">
+          <h1 class="hero-title">PEAC3</h1>
+          <p class="hero-subtitle">Cantante y compositor de Colombia</p>
+          <a href="https://open.spotify.com/artist/6UswfDMY8YyPqfyiBTYPCj" class="hero-btn" target="_blank" rel="noopener noreferrer">Escucharme en Spotify de una!</a>
+        </div>
+
+        <!--Scroll Indicator-->
+        <div class="scroll-indicator">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+      </section>
+
+            <!-- Structure of the slide show of 3 images in each image space--
             <div class="slideshow-container" id="slideshow1">
               <img
                 src="Assets/Images/Photos/Peac1.jpg"
@@ -94,7 +119,7 @@
             <h2 id="hero-title" class="hero_title">PEAC3</h2>
             <p class="hero_text">Cantante y compositor de Colombia</p>
 
-            <!--Button that directs to spotify page-->
+            !--Button that directs to spotify page--
             <a
               class="btn hero_cta"
               href="https://open.spotify.com/artist/6UswfDMY8YyPqfyiBTYPCj"
@@ -103,7 +128,7 @@
               >Escucharme en Spotify de una!</a
             >
           </div>
-        </div>
+        </div> -->
       </section>
 
       <section id="about" class="about-section">

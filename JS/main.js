@@ -1,40 +1,18 @@
 //Selecting the first slideshow container
-const slideshow1 = document.getElementById("slideshow1");
-const slides1 = slideshow1.querySelectorAll(".slide"); //Get all slides in slideshow1
-let currentSlide1 = 0; //Index of the current slide
+//Correction for just one slideshow in the background
+const heroSlideshow = document.querySelector(".hero-slideshow");
+if (heroSlideshow) {
+  const heroSlides = heroSlideshow.querySelectorAll(".hero-slide");
+  let currentHeroSlide = 0;
 
-//Function to show a specific slide in slideshow1
-function nextSlide1() {
-  slides1[currentSlide1].classList.remove("active"); //Hide current slide
-  currentSlide1 = (currentSlide1 + 1) % slides1.length; //Move to the next slide, loop back to the start if at the end
-  slides1[currentSlide1].classList.add("active"); //Show the new current slide
+  function nextHeroSlide() {
+    heroSlides[currentHeroSlide].classList.remove("active");
+    currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+    heroSlides[currentHeroSlide].classList.add("active");
+  }
+
+  setInterval(nextHeroSlide, 4000); //Change slide every 5 seconds
 }
-setInterval(nextSlide1, 1500); //Change slide every 3 seconds
-//Selecting the second slideshow container
-const slideshow2 = document.getElementById("slideshow2");
-const slides2 = slideshow2.querySelectorAll(".slide");
-let currentSlide2 = 0; //Index of the current slide
-
-//Function to show a specific slide in slideshow2
-function nextSlide2() {
-  slides2[currentSlide2].classList.remove("active");
-  currentSlide2 = (currentSlide2 + 1) % slides2.length;
-  slides2[currentSlide2].classList.add("active");
-}
-setInterval(nextSlide2, 1600); //Change slide every 3 seconds
-
-//Selecting the third slideshow container
-const slideshow3 = document.getElementById("slideshow3");
-const slides3 = slideshow3.querySelectorAll(".slide");
-let currentSlide3 = 0;
-
-//Function to show a specific slide in slideshow3
-function nextSlide3() {
-  slides3[currentSlide3].classList.remove("active");
-  currentSlide3 = (currentSlide3 + 1) % slides3.length;
-  slides3[currentSlide3].classList.add("active");
-}
-setInterval(nextSlide3, 1700);
 
 //Reveal on Scroll
 /*function revealOnScroll() {
@@ -79,7 +57,7 @@ window.addEventListener("scroll", revealOnScroll);*/
       root: null,
       threshold: 0.15,
       rootMargin: "0px 0px -10px 0px", //start earlier on scroll
-    }
+    },
   );
 
   items.forEach((el) => observer.observe(el));
