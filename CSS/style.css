@@ -11,11 +11,11 @@ body {
 }
 
 @media (max-width: 900px) {
-  .about-content {
+  .about-container {
     grid-template-columns: 1fr; /*Single column on small screens*/
     grid-template-rows: auto; /*Rows adjust automatically*/
   }
-  .about-image {
+  .about-image-sticky {
     height: 260px;
     grid-column: auto;
     grid-row: auto;
@@ -256,8 +256,8 @@ Hero Section Code
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center center;
+  object-fit: cover;
+  object-position: center;
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
 }
@@ -356,10 +356,11 @@ About me Section Code
 */
 
 #about {
-  scroll-margin-top: 100px; /*Offset for sticky header when using anchor links*/
+  scroll-margin-top: 80px; /*Offset for sticky header when using anchor links*/
 }
 
 .about-section {
+  min-height: 100vh;
   padding: 80px 0;
   background: var(--bg);
 }
@@ -378,97 +379,84 @@ About me Section Code
   font-weight: 700;
 }
 
-.about-content {
+.about-container {
   max-width: 1400px;
   margin: 0 auto;
+  padding: 0 60px;
   display: grid; /*Creating a grid*/
-  grid-template-columns: 1fr 1fr 1fr; /*Grid of 3 so it can fit the image and the 2 paragraphs*/
-  grid-template-rows: auto auto; /*2 rows*/
-  row-gap: 36px; /*Space between the rows*/
+  grid-template-columns: 1fr 1.5fr; /*Grid of 2 columns so it can fit the image and the 2 paragraphs*/
   gap: 30px;
+  align-items: start;
 }
 
 /*Left Column Image*/
-.about-image {
+.about-image-sticky {
+  position: sticky; /*Makes the image stick to the top when scrolling*/
+  top: 120px; /*Offset from the top when it becomes sticky*/
+  height: fit-content; /*Allows the image to adjust its height based on its content*/
   border-radius: 15px;
-  grid-column: 1; /*Place in the first column*/
-  grid-row: 1; /*Place in the first row*/
-  overflow: hidden;
-  align-self: stretch; /*Make the image take the full height of the row*/
-  height: 100%; /*Doesnt exceed the grid cell width*/
 }
 
 /*Stylignt the actuall image*/
-.about-image img {
+.about-image-sticky img {
   width: 100%;
-  height: 100%;
+  max-width: 500px;
+  height: auto;
   object-fit: cover;
-  object-position: center;
-  object-position: 50% 15%; /*Adjust the position of the image*/
-  border-radius: 15px;
-  display: block;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
-/*Center Column (About Story Block)*/
-.about-story {
-  background: rgba(255, 255, 255, 0.02);
-  padding: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  grid-column: 2; /*Place in the second column*/
-  grid-row: 1; /*Span both rows*/
+/*Scrolling Content on the right*/
+.about-content-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 /*Right Column (Artistic concept)*/
-.artistic-concept {
-  background: rgba(255, 255, 255, 0.02);
-  padding: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  grid-column: 3; /*Place in the third column*/
-  grid-row: 1; /*Span both rows*/
+.about-text-block h2,
+.artistic-concept h2 {
+  font-family: "Anton", system-ui, sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--text);
+  margin: 0 0 20px 0;
+  font-weight: 700;
 }
 
 /*Bottom Row - music type full width*/
-.music-type {
-  background: rgba(255, 255, 255, 0.02);
-  padding: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  grid-column: 1 / span 3; /*Span all three columns*/
-  grid-row: 2; /*Place in the second row*/
-}
-
-/*About section titles*/
-.about-story h3,
-.artistic-concept h3,
-.music-type h3 {
-  text-align: center;
-  margin-top: 0;
-  margin: bottom 12px;
-  font-family: "Anton", system-ui, sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: 0.5px;
-}
-
-/*About section paragraphs*/
-.about-story p,
-.artistic-concept p,
-.music-type p {
-  text-align: center;
+.about-text-block p,
+.artistic-concept p {
   font-family: "Poppins", system-ui, sans-serif;
-  font-size: clamp(1rem, 1.15vw, 1.12rem);
-  line-height: 1.7;
+  font-size: 1.25rem;
+  line-height: 1.8;
   color: var(--text);
+  margin: 0 0 16px 0;
+}
+
+/*Quote Highlight*/
+.quote-highlight {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 4px solid white;
+  padding: 24px 32px;
+  border-radius: 0 8px 8px 0;
+  margin: 20px 0;
+}
+
+.quote-highlight p {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--text);
+  margin: 0;
 }
 
 /*Footer text at the bottom of the about section*/
 .about-footer {
   grid-column: 1 / -1; /*Span all columns*/
   text-align: center;
-  margin-top: 40px;
+  margin-top: 70px;
 }
 
 /*Foote text styling*/
@@ -509,137 +497,382 @@ Mi musica Section Code
 .
 */
 #Music {
-  scroll-margin-top: 180px; /*Offset for sticky header when using anchor links*/
+  scroll-margin-top: 80px;
 }
+
 .music-section {
+  min-height: 100vh;
   background: var(--bg);
+  padding: 80px 0;
 }
 
+.music-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+/* Section Title */
 .music-title {
-  text-align: left;
-  margin-bottom: 40px;
-  padding-left: 60px;
-}
-
-.music-title h2 {
   font-family: "Anton", system-ui, sans-serif;
-  font-size: clamp(2.5rem, 5vw, 4rem); /*Responsive font size*/
+  font-size: clamp(3rem, 5vw, 4rem);
   color: var(--text);
-  margin: 0;
+  margin: 0 0 60px 0;
   font-weight: 700;
 }
 
-.song-list {
-  max-width: 1400px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 2fr 2fr 2fr; /*3 columns*/
-  grid-template-rows: 2fr 2fr; /*Rows adjust automatically*/
-  gap: 45px;
-  padding: 0 40px;
+/* Main Layout: Stack (left) + Featured Song (right) */
+.songs-main-layout {
+  display: flex;
+  gap: 60px;
+  align-items: flex-end;
+  justify-content: space-between;
 }
 
-/*Code for each card song, the code is exactly the same, what cahnges is the position on the grid*/
+/* ============================================
+   LEFT SIDE: STACKED DECK
+   ============================================ */
 
-.song-card1 {
-  background: rgba(255, 255, 255, 1);
-  padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
+/* Wrapper that holds the label + the deck together */
+.stack-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.stack-label {
   text-align: center;
-  grid-column: 1; /*Place in the first column*/
-  grid-row: 1; /*Rows adjust automatically*/
-}
-
-.song-card2 {
-  background: rgba(255, 255, 255, 1);
-  padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  text-align: center;
-  grid-column: 2; /*Place in the second column*/
-  grid-row: 1; /*Rows adjust automatically*/
-}
-
-.song-card3 {
-  background: rgba(255, 255, 255, 1);
-  padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  text-align: center;
-  grid-column: 3; /*Place in the third column*/
-  grid-row: 1; /*Rows adjust automatically*/
-}
-
-.song-card4 {
-  background: rgba(255, 255, 255, 1);
-  padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  text-align: center;
-  grid-column: 1; /*Place in the first column*/
-  grid-row: 2; /*Rows adjust automatically*/
-}
-
-.song-card5 {
-  background: rgba(255, 255, 255, 1);
-  padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  text-align: center;
-  grid-column: 2; /*Place in the second column*/
-  grid-row: 2; /*Rows adjust automatically*/
-}
-
-.song-card6 {
-  background: rgba(255, 255, 255, 1);
-  padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  text-align: center;
-  grid-column: 3; /*Place in the third column*/
-  grid-row: 2; /*Rows adjust automatically*/
-}
-
-/*Code and Styling for the title of all of the songs*/
-.song-card1 h3,
-.song-card2 h3,
-.song-card3 h3,
-.song-card4 h3,
-.song-card5 h3,
-.song-card6 h3 {
-  font-family: "Trebuchet MS", system-ui, sans-serif;
-  font-size: 1.75rem;
-  margin: 0 0 12px;
-  color: var(--bg);
-  font-weight: 900;
-}
-
-/*Code and styling for the release date of all the songs*/
-.song-card1 p,
-.song-card2 p,
-.song-card3 p,
-.song-card4 p,
-.song-card5 p,
-.song-card6 p {
-  font-size: 1.25rem;
-  color: var(--bg);
-  font-weight: 400;
-  font-family: "Poppins", system-ui, sans-serif;
-}
-
-/*Code for each of the cover images of all the songs*/
-.song-card1 img,
-.song-card2 img,
-.song-card3 img,
-.song-card4 img,
-.song-card5 img,
-.song-card6 img {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 12px 0;
+  padding: 6px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  display: inline-block;
   width: 100%;
-  height: auto;
-  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.cards-stack {
+  position: relative;
+  height: 500px; /* Height of the stack area */
+  display: flex;
+  align-items: center;
+}
+
+/* Individual Stacked Cards */
+.stack-card {
+  position: absolute;
+  left: calc(var(--card-index) * 60px); /* Each card offset by 50px */
+  width: 400px;
+  height: 480px;
+  background: white;
+  border-radius: 16px;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    z-index 0.1s;
+  z-index: calc(var(--card-index) + 1); /* Higher index = on top */
+  overflow: hidden;
+}
+
+/* Card Edge (visible part when stacked) */
+.card-edge {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50px; /* Width of visible edge */
+  height: 100%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #e0e0e0;
+}
+
+/* Vertical Text on Edge */
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: black;
+  white-space: nowrap;
+}
+
+/* Full Card Content (hidden until hover) */
+.card-full {
+  position: absolute;
+  left: 50px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.card-full img {
+  width: 100%;
+  border-radius: 12px;
   margin-bottom: 12px;
+}
+
+.card-full h4 {
+  color: black;
+  font-size: 1.1rem;
+  margin: 0 0 4px 0;
+}
+
+.card-full p {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Card lifts and shows content only when edge was the entry point */
+.stack-card.card-active {
+  transform: translateY(-20px);
+  z-index: 100 !important;
+}
+
+.stack-card.card-active .card-full {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 2nd Most Recent (NO T IBA A EXTRAÑAR) - Slightly Highlighted */
+.stack-highlight {
+  box-shadow: 0 4px 12px rgba(117, 13, 217, 0.3);
+}
+
+/* Always show the cover art on the front card without needing hover */
+.stack-highlight .card-full {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Ver Todas Card */
+.ver-todas-card {
+  background: #3a3a3a;
+  width: 65px;
+  transition:
+    width 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.3s ease;
+  z-index: 0 !important;
+}
+
+.ver-todas-card:hover {
+  width: 210px;
+  background: #555;
+  transform: none; /* don't lift up like other cards */
+  z-index: 100 !important;
+}
+
+.ver-todas-inner {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 210px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 20px;
+}
+
+.ver-todas-arrow {
+  color: white;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.ver-todas-label {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease 0.15s;
+}
+
+.ver-todas-card:hover .ver-todas-label {
+  opacity: 1;
+}
+
+/* Songs Modal */
+.songs-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.songs-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.songs-modal {
+  background: #1a1a1f;
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 900px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.songs-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.songs-modal-header h3 {
+  font-family: "Anton", system-ui, sans-serif;
+  font-size: 2rem;
+  color: white;
+  margin: 0;
+}
+
+.songs-modal-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.songs-modal-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.songs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.songs-grid-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.songs-grid-card:hover {
+  transform: scale(1.03);
+}
+
+.songs-grid-card img {
+  width: 100%;
+  aspect-ratio: 1;
   object-fit: cover;
+}
+
+.songs-grid-info {
+  padding: 12px;
+}
+
+.songs-grid-info h4 {
+  color: black;
+  font-size: 0.9rem;
+  margin: 0 0 4px 0;
+  font-weight: 600;
+}
+
+.songs-grid-info p {
+  color: #666;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* ============================================
+   RIGHT SIDE: FEATURED SONG (NEMO)
+   ============================================ */
+
+.featured-song-container {
+  flex-shrink: 0;
+}
+
+.featured-label {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 12px 0;
+  padding: 6px 16px;
+  border: 1px solid rgba(117, 13, 217, 0.4);
+  border-radius: 20px;
+  background: rgba(117, 13, 217, 0.08);
+  display: inline-block;
+  width: 100%;
+}
+
+.featured-song {
+  width: 400px;
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  /* Purple Neon Glow */
+  box-shadow:
+    0 0 20px rgba(117, 13, 217, 0.6),
+    0 0 40px rgba(117, 13, 217, 0.4),
+    0 0 60px rgba(117, 13, 217, 0.2);
+}
+
+.featured-song:hover {
+  transform: scale(1.02);
+}
+
+.featured-song img {
+  width: 100%;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+.featured-info h3 {
+  color: black;
+  font-size: 2rem;
+  margin: 0 0 8px 0;
+  font-weight: 700;
+}
+
+.featured-info .release-date {
+  color: #666;
+  font-size: 1rem;
+  margin: 0;
 }
 /*
 .

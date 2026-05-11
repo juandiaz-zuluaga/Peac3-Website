@@ -63,7 +63,7 @@ window.addEventListener("scroll", revealOnScroll);*/
   items.forEach((el) => observer.observe(el));
 
   //if we get to a section via nav bar link, we want to make sure the animation plays
-  window.addEventListener("haschange", () => {
+  window.addEventListener("hashchange", () => {
     //force observer to recheck all items
     items.forEach((el) => {
       observer.unobserve(el);
@@ -71,3 +71,55 @@ window.addEventListener("scroll", revealOnScroll);*/
     });
   });
 })();
+
+// Edge-only hover for stack cards
+// Activates when mouse enters the narrow edge strip; deactivates when mouse leaves the whole card.
+// This prevents the flickering caused by overlapping card bodies triggering :hover simultaneously.
+// stack-highlight (NO T IBA A EXTRANAR) is excluded because it is always fully open.
+document
+  .querySelectorAll(".stack-card:not(.stack-highlight):not(.ver-todas-card)")
+  .forEach((card) => {
+    const edge = card.querySelector(".card-edge");
+    if (!edge) return;
+
+    edge.addEventListener("mouseenter", () => {
+      card.classList.add("card-active");
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.classList.remove("card-active");
+    });
+  });
+
+// Ver Todas Modal
+const verTodasCard = document.querySelector(".ver-todas-card");
+const modalOverlay = document.getElementById("songsModalOverlay");
+const modalClose = document.getElementById("songsModalClose");
+
+if (verTodasCard && modalOverlay) {
+  verTodasCard.addEventListener("click", () => {
+    modalOverlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+  });
+
+  modalClose.addEventListener("click", () => {
+    modalOverlay.classList.remove("active");
+    document.body.style.overflow = "";
+  });
+
+  // Close when clicking outside the modal box
+  modalOverlay.addEventListener("click", (e) => {
+    if (e.target === modalOverlay) {
+      modalOverlay.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+  });
+
+  // Close with Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      modalOverlay.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+  });
+}
