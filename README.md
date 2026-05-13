@@ -30,6 +30,8 @@ This project is currently a work in progress, and it is not fully completed yet.
   3. Run 'index.html' in your browser
 
   ## Screenshots
-  - <img width="1279" height="668" alt="Peac3 StartPage" src="https://github.com/user-attachments/assets/8981805b-3792-43ba-9245-eea41d29d7f3" />
-  - <img width="1278" height="673" alt="Peac3 MusicPage" src="https://github.com/user-attachments/assets/71b9f664-6560-4018-a8d0-260b71952714" />
+  - <img width="1268" height="669" alt="image" src="https://github.com/user-attachments/assets/b550c8e5-26ae-4f41-aa4e-055ee1afa52a" />
+
+  - <img width="1268" height="664" alt="image" src="https://github.com/user-attachments/assets/6b30c1f9-ff75-4785-a032-cb2c56e993b6" />
+
 
