@@ -146,7 +146,7 @@ const songData = {
       "El primer sencillo de Peac3, una historia de amor que se niega a terminar. Una canción sobre volver, sobre ese ciclo inevitable de regresar a quien ya conoces.",
     production:
       "Producción con bases de reggaetón moderno, influenciada por el sonido urbano latino con toques de soul.",
-    spotify: "https://open.spotify.com/artist/6UswfDMY8YyPqfyiBTYPCj",
+    spotify: "https://open.spotify.com/track/0jdPSPZPRzzoYXKEb4kpwF",
     youtube: null,
   },
   "casi-algo": {
@@ -157,7 +157,7 @@ const songData = {
       "Una reflexión profunda sobre esas conexiones que nunca llegaron a concretarse, pero que dejaron una huella imborrable en el corazón.",
     production:
       "Con una producción más experimental, este tema incorpora elementos de trap y melodías pegajosas que resaltan la emotividad de la letra.",
-    spotify: "https://open.spotify.com/artist/6UswfDMY8YyPqfyiBTYPCj",
+    spotify: "https://open.spotify.com/track/3mKmbh4T5UA8qTtkUxvmpS",
     youtube: null,
   },
   "sorry-la-neta": {
@@ -168,7 +168,7 @@ const songData = {
       "Una disculpa sincera convertida en canción. Peac3 muestra su lado más vulnerable, reconociendo los errores con honestidad y corazón.",
     production:
       "Beats suaves y melódicos con influencias del R&B contemporáneo, que envuelven la voz de Peac3 en una atmósfera íntima.",
-    spotify: "https://open.spotify.com/artist/6UswfDMY8YyPqfyiBTYPCj",
+    spotify: "https://open.spotify.com/track/7K5eS0MsbYHYNEAHOwjUeP",
     youtube: null,
   },
   tamagotchi: {
@@ -179,7 +179,7 @@ const songData = {
       "Una metáfora creativa sobre el cuidado en las relaciones. Como un Tamagotchi, el amor necesita atención constante para no desaparecer.",
     production:
       "Fusión de pop urbano con elementos electrónicos y sintetizadores nostálgicos que evocan los años 90.",
-    spotify: "https://open.spotify.com/artist/6UswfDMY8YyPqfyiBTYPCj",
+    spotify: "https://open.spotify.com/track/147BUMRVdVXgGF0gO5pBGP",
     youtube: "https://youtu.be/XhuCwNt7JwI?si=AMc3H0El9XLP1Aej",
   },
   "so-me-raya": {
@@ -190,7 +190,7 @@ const songData = {
       "Cuando alguien te afecta más de lo que quisieras admitir. Una canción sobre esa persona que logra rayarte el alma sin querer.",
     production:
       "Afrobeat latino con percusiones orgánicas y una línea melódica que se queda en la cabeza.",
-    spotify: "https://open.spotify.com/artist/6UswfDMY8YyPqfyiBTYPCj",
+    spotify: "https://open.spotify.com/track/13bv8E1FT3ZK8kjGoFK8pb",
     youtube: "https://youtu.be/Ra6ryI6ZXlU?si=b2qP_aXf2xRaoNGW",
   },
   evangeline: {
@@ -201,7 +201,7 @@ const songData = {
       "Una carta de amor dedicada a Evangeline. Peac3 describe con detalle esa sensación de encontrar a alguien que lo cambia todo.",
     production:
       "Soul moderno con guitarras acústicas y producción minimalista que pone la voz al centro de la experiencia.",
-    spotify: "https://open.spotify.com/artist/6UswfDMY8YyPqfyiBTYPCj",
+    spotify: "https://open.spotify.com/track/0PleqWq9AIj03fSjaKi7Ji",
     youtube: "https://youtu.be/mme0zsV_EWQ?si=5EcvCygvrM_x6N97",
   },
   "no-t-iba-a-extranar": {
@@ -212,18 +212,18 @@ const songData = {
       "La contradicción del desamor: decirte que no ibas a hacer falta, y descubrir que sí. Peac3 en su estado más crudo y honesto.",
     production:
       "Reggaetón con influencias de hip hop y bases profundas que acompañan la intensidad emocional de la letra.",
-    spotify: "https://open.spotify.com/artist/6UswfDMY8YyPqfyiBTYPCj",
+    spotify: "https://open.spotify.com/track/53fs1kfX1aZTGiKOyqL3Au",
     youtube: "https://youtu.be/YcaVEhO2Wqg?si=XvkFXVBQ812N_YGg",
   },
   nemo: {
     title: "NEMO",
     date: "23 de Abril de 2026",
-    cover: "Assets/Images/Covers/So me raya.jpg", // placeholder
+    cover: "Assets/Images/Covers/NEMO Cover.jpeg", // placeholder
     description:
       "El sencillo más reciente de Peac3. Una exploración de nuevos sonidos y emociones que marca una nueva etapa en su carrera.",
     production:
       "Producción fresca y evolucionada, combinando el ADN sonoro de Peac3 con nuevas texturas y experimentación.",
-    spotify: "https://open.spotify.com/artist/6UswfDMY8YyPqfyiBTYPCj",
+    spotify: "https://open.spotify.com/track/3WJlrNpfEDrive1jUgnyyw",
     youtube: "https://youtu.be/DMy2xxvNP5k?si=zjH22yzGFO2rSPBs",
   },
 };
@@ -344,7 +344,7 @@ const teamData = {
   manager: {
     name: "Oscar Mejia Duque",
     role: "Manager",
-    image: "Assets/Images/Photos/Mono pics/Mono3.jpg",
+    image: "Assets/Images/Photos/MonoNewPic.jpg",
     paragraph:
       "Conozco a PEAC3 desde que teníamos nueve años. Siempre fuimos grandes amigos y, desde que empezó en la música, supe que tenía algo especial. Lo he visto crecer, esforzarse y nunca rendirse, y eso me inspiró a estar a su lado y apoyarlo en este camino. Con el tiempo, Dios y la vida nos juntaron para trabajar juntos, y hoy en día me siento agradecido de formar parte de su proceso. Creo en su talento, en su disciplina y en su forma de soñar en grande.",
     links: [
@@ -480,4 +480,42 @@ if (teamOverlay) {
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeTeamModal();
+});
+
+/**
+ *
+ * Responsive design for mobile and small screens
+ *
+ */
+//Nav bar gamburger menu
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+const navOverlay = document.getElementById("navOverlay");
+
+function toggleMenu() {
+  if (hamburger) hamburger.classList.toggle("open");
+  if (navLinks) navLinks.classList.toggle("open");
+  if (navOverlay) navOverlay.classList.toggle("open");
+  const isOpen = navLinks && navLinks.classList.contains("open");
+  document.body.style.overflow = isOpen ? "hidden" : "";
+}
+
+function closeMenu() {
+  if (hamburger) hamburger.classList.remove("open");
+  if (navLinks) navLinks.classList.remove("open");
+  if (navOverlay) navOverlay.classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+if (hamburger) {
+  hamburger.addEventListener("click", toggleMenu);
+}
+
+if (navOverlay) {
+  navOverlay.addEventListener("click", closeMenu);
+}
+
+//Close menu when a nav link is clicked
+document.querySelectorAll(".nav-link-item").forEach((link) => {
+  link.addEventListener("click", closeMenu);
 });
