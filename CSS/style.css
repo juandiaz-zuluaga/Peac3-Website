@@ -580,6 +580,11 @@ Mi musica Section Code
   justify-content: space-between;
 }
 
+/*Hide mobile stack in desktop web browser*/
+.mobile-songs-list {
+  display: none;
+}
+
 /* 
 .
 .
@@ -1727,6 +1732,9 @@ Responsive Design for Mobile and smaller screens
   transform: translateY(-7px) rotate(-45deg);
 }
 
+/*Mid way point for more smaller windows than the desktop, but bigger than phone screens
+This will be revised later*/
+
 @media (max-width: 768px) {
   .site-header {
     overflow: visible;
@@ -1874,8 +1882,161 @@ Responsive Design for Mobile and smaller screens
   .
   .
   */
+  .mobile-ver-todas-tag {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: rgba(117, 13, 217, 0.12);
+    border: 1px solid rgba(117, 13, 217, 0.4);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    margin-bottom: 4px;
+  }
 
-  /*Skipping this for now*/
+  .mobile-ver-todas-tag:active {
+    background: rgba(117, 13, 217, 0.25);
+  }
+
+  .mobile-ver-todas-tag span:first-child {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 1px;
+  }
+
+  /*Make the song grid to be 2 columns on mobile browsers*/
+  .songs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .cards-stack {
+    display: none; /*Hides the desktop card stack*/
+  }
+
+  .mobile-songs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    flex: none;
+  }
+
+  .mobile-song-tag {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    cursor: pointer;
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .mobile-song-tag:active {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .mobile-song-tag:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .mobile-song-tag span:first-child {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.5px;
+  }
+
+  .mobile-tag-date {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.7rem !important;
+    color: var(--muted) !important;
+    font-weight: 400 !important;
+  }
+
+  /*Highlighing the second most recent */
+  .highlight-tag {
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+  }
+
+  /*Stacks most recent song below the list*/
+  .songs-main-layout {
+    flex-direction: column !important;
+    gap: 24px;
+    width: 100%;
+  }
+  .featured-song-container {
+    width: 100%;
+    flex-shrink: 0;
+  }
+  .featured-song {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  /*Fix flip card in mobile*/
+  .flip-card-overlay {
+    align-items: center;
+    padding-top: 40px;
+  }
+
+  .flip-card-scene {
+    width: 92vw !important;
+    height: auto !important;
+  }
+
+  .flip-card-inner {
+    height: auto !important;
+    min-height: 500px !important;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    position: relative !important;
+    height: auto !important;
+    min-height: 500px !important;
+  }
+
+  .flip-card-back {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    flex-direction: column !important;
+    overflow-y: auto !important;
+    max-height: 80vh !important;
+    min-height: 500px !important;
+  }
+
+  .flip-back-image {
+    width: 100% !important;
+    height: 220px !important;
+    flex-shrink: 0 !important;
+    border-radius: 20px 20px 0 0 !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .flip-back-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .flip-back-content {
+    padding: 24px 20px !important;
+    overflow-y: visible !important;
+    flex: 1;
+  }
 
   /*
   .
@@ -1909,7 +2070,7 @@ Responsive Design for Mobile and smaller screens
     gap: 14px;
   }
   .social-circle {
-    width: 200px;
+    width: 200px !important;
     height: 52px;
     border-radius: 50px;
     gap: 10px;

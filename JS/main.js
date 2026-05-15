@@ -98,13 +98,22 @@ const modalClose = document.getElementById("songsModalClose");
 
 if (verTodasCard && modalOverlay) {
   verTodasCard.addEventListener("click", () => {
+    savedScrollY = window.scrollY; // save scroll position before opening modal
+    document.querySelector(".songs-modal").scrollTop = 0; // ensure grid starts at top
     modalOverlay.classList.add("active");
     document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed"; // prevent background jump when scrollbar disappears
+    document.body.style.width = "100%";
+    document.body.style.top = `-${savedScrollY}px`; // keep the scroll position
   });
 
   modalClose.addEventListener("click", () => {
     modalOverlay.classList.remove("active");
     document.body.style.overflow = "";
+    document.body.style.position = "";
+    document.body.style.width = "";
+    document.body.style.top = "";
+    window.scrollTo(0, savedScrollY); // restore scroll position
   });
 
   // Close when clicking outside the modal box
@@ -112,6 +121,10 @@ if (verTodasCard && modalOverlay) {
     if (e.target === modalOverlay) {
       modalOverlay.classList.remove("active");
       document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+      document.body.style.top = "";
+      window.scrollTo(0, savedScrollY); // restore scroll position
     }
   });
 
@@ -130,6 +143,10 @@ if (verTodasCard && modalOverlay) {
     if (e.key === "Escape") {
       modalOverlay.classList.remove("active");
       document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+      document.body.style.top = "";
+      window.scrollTo(0, savedScrollY);
     }
   });
 }
@@ -237,6 +254,7 @@ const flipScene = document.querySelector(".flip-card-scene");
 const flipClose = document.getElementById("flipCardClose");
 
 let flipIsAnimating = false;
+let savedScrollY = 0;
 
 function openFlipCard(songKey) {
   const song = songData[songKey];
@@ -279,8 +297,13 @@ function openFlipCard(songKey) {
   flipCardInner.style.transition = "";
 
   // Show overlay — card appears small at front
+  savedScrollY = window.scrollY;
   flipOverlay.classList.add("active");
+  document.querySelector(".flip-card-back").scrollTop = 0; // ensure back content starts at top
   document.body.style.overflow = "hidden";
+  document.body.style.position = "fixed"; // prevent background jump when scrollbar disappears
+  document.body.style.width = "100%";
+  document.body.style.top = `-${savedScrollY}px`; // keep the scroll position
 
   // Flip + expand together
   setTimeout(() => {
@@ -298,6 +321,10 @@ function closeFlipCard() {
   flipOverlay.classList.remove("active");
   flipScene.classList.remove("expanded");
   document.body.style.overflow = "";
+  document.body.style.position = "";
+  document.body.style.width = "";
+  document.body.style.top = "";
+  window.scrollTo(0, savedScrollY); // restore scroll position
   flipIsAnimating = false;
 }
 
@@ -519,3 +546,24 @@ if (navOverlay) {
 document.querySelectorAll(".nav-link-item").forEach((link) => {
   link.addEventListener("click", closeMenu);
 });
+
+//Mobile song tags - single tap opens flip card directly
+document.querySelectorAll(".mobile-song-tag").forEach((tag) => {
+  tag.addEventListener("click", () => {
+    const songKey = tag.dataset.song;
+    if (songKey) openFlipCard(songKey);
+  });
+});
+
+const mobileVerTodas = document.getElementById("mobileVerTodas");
+if (mobileVerTodas) {
+  mobileVerTodas.addEventListener("click", () => {
+    document.querySelector(".songs-modal").scrollTop = 0; // ensure grid starts at top
+    const scrollY = window.scrollY;
+    modalOverlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+    document.body.style.top = `-${scrollY}px`;
+  });
+}
